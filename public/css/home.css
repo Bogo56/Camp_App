@@ -1,0 +1,35 @@
+main{
+    height:90vh;
+}
+
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+    url("https://source.unsplash.com/user/bogoto/likes/1920x1080");
+    background-size:cover;
+    background-position:center;
+}
+
+.nav-link{
+    padding:0.25rem 0;
+    font-weight:700;
+    color:rgba(255,255,255,0.8);
+    border-bottom:0.25rem solid transparent;
+}
+
+.nav-link:hover{
+    border-bottom:0.25rem solid rgba(255,255,255,0.6);
+}
+
+.nav-link.active{
+    border-bottom:0.25rem solid rgba(255,255,255,0.8);
+}
+
+.btn-secondary{
+    color:rgba(0, 0, 0, 0.637);
+    font-weight:700;
+}
+
+.btn-secondary:hover{
+    color:black;
+    font-weight:700;
+}

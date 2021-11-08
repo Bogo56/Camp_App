@@ -1,0 +1,84 @@
+<% layout("layouts/boilerplate") -%>
+<link rel="stylesheet" type="text/css" href="/css/stars.css"/>
+<div class="row mt-5 mb-5">
+
+    <div class="card col-6">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+            <% destination.images.forEach((img,i) => { %>
+                <div class="carousel-item <%= i === 0 ? 'active' : '' %>  ">
+                <img src="<%= img.resize %>" class="d-block w-100" alt="beautiful image">
+                </div>
+            <% }) %>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="card-body">
+            <h3 class="card-title"><%= destination.title %></h3>
+        <ul class="list-group list-group-flush mb-2">
+            <li class="list-group-item">Location: <%= destination.location %> </li>
+            <li class="list-group-item">Author: <strong><%= destination.author.username %></strong> </li>
+            <li class="list-group-item">Description: This is some amazing place to be</li>
+            <li class="list-group-item">Price: <%= destination.price %> $/Day</li>
+        </ul>
+        <% if ( curUser && curUser.id === destination.author.id) { %>
+            <a href="/destinations/<%= destination._id %>/edit " class=" btn btn-primary">Edit</a>
+            <form class="d-inline" action="/destinations/<%= destination._id %>?_method=DELETE" method="POST">
+            <button class=" btn btn-danger">Delete</button>
+        <% } %>
+            </form>
+        </div>
+    </div>
+    <div class="col-6 ">
+        <div class="row">
+            <h2 class="mb-4">Leave a Review</h2>
+                <form action = "/destinations/<%= destination._id %>/reviews" class="needs-validation mb-5" method="POST" novalidate>
+                    <div class="mb-3">
+                        <%- include('partials/stars') %>
+                    </div>
+                    <div class="mb-3">
+                        <label for = "title" class="form-label mt-1">Review</label>
+                        <textarea class="form-control" id="review" name="reviewInfo[review]" type='text' cols="10" rows="5" required></textarea>
+                        <div class="valid-feedback">
+                            Looks good!
+                    </div>
+                    <button class="btn btn-success ml-3">Submit</button>
+                </form>
+        </div>
+        <div class="row m-auto ">
+            <div id="destinationMAP"></div>
+        </div>
+    </div>
+</div>
+<div class="row mt-5 mb-5">
+    <h2 class="mb-4 text-center"> All Reviews</h2>
+    <% for (let review of destination.reviews){ %>
+        <div class="card col-7 m-auto">
+            <div class="card-body">
+            <h5 class="card-title">Rating: <%= review.rating %></h5>
+            <p class="starability-result" data-rating= "<%= review.rating %>">Rated: <%= review.rating %> stars </p>
+            <h6 class="card-text mt-2">Author: <%= review.author.username %></h6>
+            <p class="card-text mt-2"><%= review.review %></p>
+        <% if (curUser && curUser.id === review.author.id){ %>
+            <form action = "/destinations/<%= destination._id %>/reviews/<%= review._id %>?_method=DELETE" class="needs-validation " method="POST">   
+            <button class="btn btn-danger"> Delete</button>
+            </form>
+        <% } %>
+            </div>
+        </div>
+    <% } %>
+</div>
+<script> 
+    const map_key = '<%- process.env.MAPBOX_KEY %>'; 
+    const destination = <%- JSON.stringify(destination) %>
+</script>
+<script src="/js/mapBox.js"></script>
+

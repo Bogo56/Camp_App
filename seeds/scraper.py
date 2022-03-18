@@ -33,6 +33,7 @@ for n in images:
 
 
 
+# 
 # for dest in img_list:
 #     time.sleep(1)
 #     y=0

@@ -1,12 +1,13 @@
+const path = require("path");
+const dotenv = require("dotenv");
+dotenv.config({ path: path.join(__dirname, "..", ".env") });
+
 const fs = require("fs");
 const mongoose = require("mongoose");
 const destModel = require("../model/destinationModel");
 const userModel = require("../model/userModel");
 const reviewModel = require("../model/reviewsModel");
 const mapDestination = require("../3rd_party_APIs/mapBox/maps");
-
-const dotenv = require("dotenv");
-dotenv.config({ path: path.join(__dirname, "..", ".env") });
 
 // This module is seeding the database with the destinations
 

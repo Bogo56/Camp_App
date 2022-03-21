@@ -11,14 +11,14 @@
     <img src="https://img.shields.io/badge/Made%20with-Python-blue"
          alt="Gitter">
   </a>
-  <a href="https://img.shields.io/tokei/lines/github/Bogo56/RecipeApp">
-      <img src="https://img.shields.io/tokei/lines/github/Bogo56/RecipeApp">
+  <a href="https://img.shields.io/tokei/lines/github/Bogo56/Camp_App">
+      <img src="https://img.shields.io/tokei/lines/github/Bogo56/Camp_App">
   </a>
-  <a href="https://img.shields.io/github/languages/count/Bogo56/RecipeApp?color=f">
-    <img src="https://img.shields.io/github/languages/count/Bogo56/RecipeApp?color=f">
+  <a href="https://img.shields.io/github/languages/count/Bogo56/Camp_App?color=f">
+    <img src="https://img.shields.io/github/languages/count/Bogo56/Camp_App?color=f">
   </a>
-  <a href="https://badgen.net/github/commits/Bogo56/RecipeApp">
-    <img src="https://badgen.net/github/commits/Bogo56/RecipeApp">
+  <a href="https://badgen.net/github/commits/Bogo56/Camp_App">
+    <img src="https://badgen.net/github/commits/Bogo56/Camp_App">
   </a>
 </p>
 
@@ -40,32 +40,41 @@
   
 ### Frameworks
 <p>
-<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">
+<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
+<img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white">
 </p>
 
 ### Databases
 <p>
-<img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white">
+<img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white">
 </p>
 
 ### Additional Libraries and Technologies
 <p>
-  <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white">
+  <img src="https://img.shields.io/badge/ORM-Mongoose-red?style=for-the-badge">
   <img src="https://img.shields.io/badge/OS-Ubuntu-orange?style=for-the-badge">
-   <img src="https://img.shields.io/badge/Security-JWT-green?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Web Scrape-Pandas-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Templating-EJS-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/API-Cloudinary-blueviolet?style=for-the-badge">
+  <img src="https://img.shields.io/badge/API-MapBox-blueviolet?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Security-Bcrypt-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Security-Passport-green?style=for-the-badge">
 </p>
 
 ## About The Project
-Ever since I learned JavaScript, my focus was pointed primarily towards NodeJS ( and Python), since backend development is what I'm most passionate about. After a while I realized that that my frontend skills were lagging behind. I knew that frontend is important (even though I'm not very excited about it). So I decided on upgrading my competencies in using JavaScipt in it's natural habitat 😁 - on the client-side. So I made this App. It'a an SPA (vanilla JS, no React), that renders different recipes. I wanted to make it authentic - so I used bulgarian recipes. I generated the data ( almost 900 recipes) by using python to scrape popular bulgarian cooking websites and modeling that into a database, serving it trough a simple API.
+This is my second Project in NodeJS. As always I wanted to make the project more authentic, so I decided to make a mini-website for showcasing bulgarian destinations.
+* I **created the data for the website with python** - I wrote a script to scrape a famous bulgarian travel site and model the data into a MongoDB database
+* I used **bootstrap to create a simple and responsive frontend** - since I wanted to focus my attention on the the backend side of things
+* **Authentication** and state-management is done **using sessions** - I'm using the **passport library** for this purpouse
+* All uploaded images are directly **stored on Cloudinary**
+* The whole website is **rendered server-side**, using the **EJS templating engine**.
+* I'm using the MapBox API to visualize destinations on the map.
 
-I have **deployed the Flask API on my own Ubuntu 18.04 server**, and the frontend on **Heroku** (to save some time). You can find the link to the project in the next section.
-
-* The **Frontend** part **is the main focus of this** project. The only purpose of the API is to feed data to the RecipeAPP, so the API itself is minimalistic with basic authentication.
+I have **deployed the Project on my own Ubuntu 18.04 server**. You can find the link to the project in the next section.
 
 ## Check out the Project
-As I mentioned, I have deployed the frontend part to Heroku - so you can play around with it. Here is the link:
-https://recipe-app-2022.herokuapp.com/#467
+As I mentioned, I have deployed the Project - so you can play around with it. Here is the link:
+https://bulcamp.bogoapps.site/
 
 Login with theese credentials. It will ask them from you once you try to search.
 

@@ -1,9 +1,9 @@
 <h1 align="center">
   <br>
-  <a href="https://recipe-app-2022.herokuapp.com/#467"><img src="https://res.cloudinary.com/dawb3psft/image/upload/v1647878417/Portfolio/logo.png" alt="RecipeAPP" width="300"></a>
+  <a href="https://bulcamp.bogoapps.site/"><img src="https://res.cloudinary.com/dawb3psft/image/upload/v1647926681/Portfolio/campapp.png" alt="CampAPP" width="300"></a>
 </h1>
 
-<h4 align="center">Personal Project - Creating a Frontend JS App </h4>
+<h4 align="center">Personal Project - Creating a NodeJS Project </h4>
 
 <p align="center">
   <a href="https://img.shields.io/badge/Made%20with-JavaScript-yellow"><img src="https://img.shields.io/badge/Made%20with-JavaScript-yellow"></a>
@@ -68,7 +68,7 @@ This is my second Project in NodeJS. As always I wanted to make the project more
 * **Authentication** and state-management is done **using sessions** - I'm using the **passport library** for this purpouse
 * All uploaded images are directly **stored on Cloudinary**
 * The whole website is **rendered server-side**, using the **EJS templating engine**.
-* I'm using the MapBox API to visualize destinations on the map.
+* I'm using the **MapBox API** to visualize destinations on the map.
 
 I have **deployed the Project on my own Ubuntu 18.04 server**. You can find the link to the project in the next section.
 
@@ -76,94 +76,74 @@ I have **deployed the Project on my own Ubuntu 18.04 server**. You can find the 
 As I mentioned, I have deployed the Project - so you can play around with it. Here is the link:
 https://bulcamp.bogoapps.site/
 
-Login with theese credentials. It will ask them from you once you try to search.
-
-You can log with:
-**USERNAME**: "Admin"
-**PASSWORD**: "Admin"
-
-Searching is made in bulgarian -  intentionally. I could've scraped an international site and do it all in english - BUT where is the fun in that😁
-
-
-## Project Workflow
-Here, I'm outlining very briefly the phases that the project went trough from start to finish.
-
-### Phase 1 - Creating Data
-Before creating the app, I needed some data. In this case I needed a lot of recipes - at least a couple of hundred. So where do I get that data? Well, I actually decided to create it myself, or let's use the term "borrow it"😁 from another site (only for the sake of the project). SOO I did a research on the popular cooking websites in Bulgaria, and chose one with proper structure for scraping. Then I wrote a couple of scripts in Python using the Pandas Library that:
-
-  1. Scraped the summary info of the recipes, shown in the "All Recipes Section", while going trough all results pages - inserting the info into a DB.
-  2. Visited every individual recipe page and scraped it's full description and ingredients - updating the recipe data in the DB.
-  3. Scraping once more - this time downloading the images (that I later upload on Cloudinary) - updating the recipes with the image links in the DB.
-  
-### Phase 2 - Making Data Accessible
-So now that I had the data, I had to make it available to be consumed by another entity - e.g. frontend. So I created a simple API in Flask that delivered the data
-to my frontend application.
-
-### Phase 3 - Creating the Frontend
-Now that I have laid the foundation, I could start working on the App itself.
-
-### Phase 4 - Deployment
-I have deployed the simple Flask API to my own server in the beginning, so I could test the frontend app during development with it.
-
-I deployed the frontend to Heroku - since this would save me some time with server configuration.
 
 ## Project Structure
 
-* All scraping scripts are placed in `./api_python/seed` folder
-* The actual frontend App in `./javascript` folder follows the MVC architecture.
+* The scrapeing script, and the seed data it generated are placed in `./seeds` folder
 
 ```
-📦 RecipeApp
-├─.gitignore
-├─.idea
-├─ README.md
-├─ api_python
-│  ├─ api.py
-│  ├─ config.py
-│  ├─ requirements.txt
-│  ├─ resources
-│  |  └─ routes.py
-│  └─ seed
-│     ├─ api_model.py
-│     ├─ downloader.py
-│     ├─ images
-│     ├─ recipes.db
-│     └─ scraper.py
-├─ img
-│  ├─ bookmark.png
-│  ├─ bookmark_grad.png
-│  ├─ check.png
-│  ├─ clock.png
-│  ├─ error.svg
-│  ├─ favicon.png
-│  ├─ icons.svg
-│  ├─ logo.png
-│  ├─ minus.png
-│  ├─ notes_.png
-│  ├─ people.png
-│  ├─ plus.png
-│  ├─ pngegg.png
-│  ├─ recipe_4.jpg
-│  ├─ sample_food.jpg
-│  ├─ spin1.png
-│  ├─ spin1.svg
-│  ├─ spinner.png
-│  └─ spinner.svg
-├─ javascript
-│  ├─ config.js
-│  ├─ controller.js
-│  ├─ errors.js
-│  ├─ helpers.js
-│  ├─ model.js
-│  └─ views
-│     ├─ bookmarksView.js
-│     ├─ errorHandler.js
-│     ├─ eventHandlers.js
-│     ├─ loginView.js
-│     ├─ recipeView.js
-│     └─ searchView.js
-├─ main.html
-└─ style.css
+📦 Camp_App
+├─ .prettierrc
+├─ 3rd_party_APIs
+|  ├─ cloudinary
+│  │  └─ configuration.js
+|  ├─ mapBox
+│  │  └─ maps.js
+│  └─ no.txt
+├─ README.md
+├─ app.js
+├─ auth
+│  └─ passport-config.js
+├─model
+|  ├─destinationModel.js
+|  ├─reviewsModel.js
+│  └─ userModel.js
+├─ package-lock.json
+├─ package.json
+├─ public
+│  ├─ css
+│  │  ├─ home.css
+│  │  ├─ maps.css
+│  │  └─ stars.css
+│  └─ js
+│     ├─ clusterMap.js
+│     ├─ formValidate.js
+│     └─ mapBox.js
+├─ routes
+│  ├─ destinations.js
+│  ├─ reviews.js
+│  └─ users.js
+├─ schemas.js
+├─ seeds
+│  ├─ bg_destinations.json
+│  ├─ bg_seed.js
+│  ├─ scraper.py
+│  └─ seed.js
+├─ sources
+│  └─ images
+│     ├─ Lake District .jpg
+│     ├─ Lake-District-.jpg
+│     └─ lake-tahoe-california-USLAKES0920.jpg
+├─ utils
+│  ├─ AsyncCatch.js
+│  ├─ ExpressError.js
+│  └─ middlewares.js
+└─ views
+   ├─ 404.ejs
+   ├─ destination.ejs
+   ├─ destinations.ejs
+   ├─ errors.ejs
+   ├─ home.ejs
+   ├─ layouts
+   │  └─ boilerplate.ejs
+   ├─ login.ejs
+   ├─ new.ejs
+   ├─ partials
+   │  ├─ footer.ejs
+   │  ├─ header.ejs
+   │  ├─ messages.ejs
+   │  └─ stars.ejs
+   ├─ register.ejs
+   └─ update.ejs
 ```
 ©generated by [Project Tree Generator](https://woochanleee.github.io/project-tree-generator)
-

@@ -78,7 +78,7 @@ I have **deployed the Project on my own Ubuntu 18.04 server**. You can find the 
 As I mentioned, I have deployed the Project - so you can play around with it. Here is the link:
 https://bulcamp.bogoapps.site/
 
-## Note from my future self😁
+## Note from my future self 😁
 Since the time I'm creating the readme file for this repository is a lot of months and projects 😇 away from the time when I first created it, I wanted to note that now after going trough it, with all the knowledge and new things I have learned after that, there are a lot of stuff I would change if I was to redo the project all over again. Like for example restructuring - creating a better separation between routes and controllers - right now it's all over place😅. I would also work more on security - creating different user roles, restricting some routes, validating the ligitimacy of the user session etc. Anyways, I do think that this is a good opportunity to reflect on my previous mistakes, see how I improved and learned from them and also see how I could have done it better if I had the knowledge back then.
 
 ## Project Structure

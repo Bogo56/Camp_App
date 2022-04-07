@@ -74,7 +74,7 @@ I have **deployed the Project on my own Ubuntu 18.04 server**. You can find the 
 #### !NB MapBox does a pretty shitty job at locating bulgarian locations, so don't get frustrated if some of the destinations end up in Ethiopia😂
 
 ## Check out the Project
-As I mentioned, I have deployed the Project - so you can play around with it. Here is the link:
+As I mentioned, I have deployed the Project - so you can play around with it. Here is the link(NOT Mobile responsive):
 https://bulcamp.bogoapps.site/
 
 ## Note from my future self 😁
